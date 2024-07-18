@@ -1,8 +1,7 @@
-let titulo = document.querySelector('h1');
-titulo.innerHTML = 'Guess the number!';
-
-let parrafo = document.querySelector('p');
-parrafo.innerHTML = 'Guess the number between 1 - 10';
+function asignarTextoElemento(elemento,texto){
+    let text = document.querySelector(elemento);
+    text.innerHTML = texto;
+}
 
 function intentoDeUsuario(){
     let numeroUsuario = document.querySelector('input').value;
@@ -14,3 +13,6 @@ function intentoDeUsuario(){
         parrafo.innerHTML = 'Wrong number, try again!';
     }
 }
+
+asignarTextoElemento('h1', 'Guess the number!');
+asignarTextoElemento('p', 'Guess the number between 1 - 10');
