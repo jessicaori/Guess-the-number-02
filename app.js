@@ -18,6 +18,7 @@ function verificarIntento(){
     console.log(numeroAleatorio);
     if (numeroUsuario == numeroAleatorio){
         asignarTextoElemento('p',`Congrats! You guessed the number! in ${intentos} ${intentos > 1 ? 'tries.' : 'try.'}`);
+        document.getElementById('reiniciar').removeAttribute('disabled');
     } else {
         if(numeroUsuario < numeroAleatorio){
             msg = "The number is greater!"
@@ -30,8 +31,17 @@ function verificarIntento(){
     return;
 }
 
-asignarTextoElemento('h1', 'Guess the number!');
-asignarTextoElemento('p', 'Guess the number between 1 - 10');
+function reiniciarJuego(){
+    condicionesIniciales();
+}
 
-let numeroAleatorio = generarNumeroSecreto();
-let intentos = 0;
+function condicionesIniciales(){
+    clearbox();
+    asignarTextoElemento('h1', 'Guess the number!');
+    asignarTextoElemento('p', 'Guess the number between 1 - 10');
+    numeroAleatorio = generarNumeroSecreto();
+    intentos = 0;
+    document.getElementById('reiniciar').setAttribute('disabled', true);
+}
+
+condicionesIniciales();
